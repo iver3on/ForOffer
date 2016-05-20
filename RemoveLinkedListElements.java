@@ -54,7 +54,7 @@ public class RemoveLinkedListElements {
 	}
 	
 	
-	//o(N)Ê±¼ä¸´ÔÓ¶ÈÉ¾³ı½Úµã  ºÜnice
+	//o(N)æ—¶é—´å¤æ‚åº¦åˆ é™¤èŠ‚ç‚¹  å¾ˆnice
 	public static ListNode removeNode(ListNode head,ListNode pTobeDeleted){
 		if(head==null||pTobeDeleted==null){
 			return head;
