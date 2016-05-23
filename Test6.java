@@ -11,7 +11,7 @@ class ListNode {
 }
 public class Test6 {
 
-	//�õ�����������k���ڵ�
+	//得到链表倒数第k个节点
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		ListNode node1 = new ListNode(1);
@@ -28,9 +28,13 @@ public class Test6 {
 	}
 
 	
-	//˫ָ��˼���һ��ָ����ǰ��k-1���ڶ���ָ�뱣�ֲ������ӵ�k����ʼ���ڶ���ָ��Ҳ��ʼ��������ͷ��ʼ��������������ָ�����k-1������һ��ָ�뵽��������ĩβ�ڵ�
-	//�ڶ���ָ��պõ��ﵹ����k���ڵ�
+	//双指针思想第一个指针向前走k-1，第二个指针保持不动，从第k步开始，第二个指针也开始从链表的头开始遍历。由于两个指针相差k-1，当第一个指针到达链表的末尾节点
+	//第二个指针刚好到达倒数第k个节点
 	private static ListNode findkthToTail(ListNode node1, int k) {
+		//代码的鲁棒性最重要了，要时刻记得边界条件，即使做出来，代码鲁棒不高，也是很失败的。
+		if(node1==null||k==0){
+			return null;
+		}
 		ListNode begin = node1;
 		ListNode behind = null;
 		for(int i=0;i<k-1;i++){
