@@ -23,10 +23,28 @@ public class Test6 {
 		node2.next = node3;
 		node3.next = node4;
 		node4.next = node5;
-		ListNode node = findkthToTail(node1,2);
-		System.out.println(node.val);
+		//判断是不是环形链表
+		System.out.println(isCycle(node1));
+		//ListNode node = findkthToTail(node1,2);
+		//System.out.println(node.val);
 	}
 
+	//判断是不是环形链表
+	private static boolean isCycle(ListNode node1) {
+		//快指针 一次走两步
+		ListNode fast = node1;
+		//慢指针 一次走一步
+		ListNode slow = node1;
+		
+		while(fast.next!=null){
+			fast = fast.next.next;
+			slow = slow.next;
+			if(fast==slow){
+				return true;
+			}
+		}
+		return false;
+	}
 	
 	//双指针思想第一个指针向前走k-1，第二个指针保持不动，从第k步开始，第二个指针也开始从链表的头开始遍历。由于两个指针相差k-1，当第一个指针到达链表的末尾节点
 	//第二个指针刚好到达倒数第k个节点
